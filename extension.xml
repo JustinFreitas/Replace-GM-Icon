@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<root version="3.3" release="8.1|CoreRPG:4.1">
+	<announcement text="Replace GM Icon v1.0, 5/28/22\rJustin Freitas, FGC/FGU CoreRPG" font="emotefont" icon="replace_gm_icon" />
+	<properties>
+		<name>Feature: Replace GM Icon</name>
+		<version>1.0</version>
+		<loadorder>998</loadorder>
+		<author>Justin Freitas</author>
+		<description>Replace the GM icon.</description>
+		<ruleset>
+			<name>5E</name>
+		</ruleset>
+	</properties>
+
+	<base>
+		<icon name="replace_gm_icon" file="graphics/icons/replace_gm_icon.png" />
+		<includefile source="graphics/graphics_portraits.xml" />
+	</base>
+</root>
