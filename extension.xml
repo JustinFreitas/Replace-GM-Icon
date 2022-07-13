@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <root version="3.3" release="8.1|CoreRPG:4.1">
-	<announcement text="Replace GM Icon v1.0, FGC/FGU CoreRPG, 5/28/22\r2022 Justin Freitas" font="emotefont" icon="replace_gm_icon" />
+	<announcement text="Replace GM Icon v1.0, FGC/FGU CoreRPG\r5/28/22 Justin Freitas" font="emotefont" icon="replace_gm_icon" />
 	<properties>
 		<name>Feature: Replace GM Icon</name>
 		<version>1.0</version>
