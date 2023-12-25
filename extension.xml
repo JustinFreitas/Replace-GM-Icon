@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <root version="3.3">
-	<announcement text="Replace GM Icon v1.2 FGC/FGU, 7/4/23\r 2022-2023 Justin Freitas" font="emotefont" icon="replace_gm_icon" />
+	<announcement text="Replace GM Icon v1.2 FGC/FGU, 7/4/23\r2022-2023 Justin Freitas" font="emotefont" icon="replace_gm_icon" />
 	<properties>
 		<name>Feature: Replace GM Icon</name>
 		<version>1.2</version>
