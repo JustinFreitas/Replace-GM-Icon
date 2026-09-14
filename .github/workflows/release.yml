@@ -1,0 +1,62 @@
+name: Build & Release Replace-GM-Icon
+
+on:
+  push:
+    branches:
+      - master
+    tags:
+      - 'v*'
+  pull_request:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build Extension Package
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Create Extension Package
+        run: |
+          mkdir -p out
+          zip -r "out/Replace GM Icon.ext" extension.xml graphics
+          echo "Extension successfully packaged."
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Replace-GM-Icon
+          path: "out/Replace GM Icon.ext"
+
+  release:
+    name: Create GitHub Release
+    needs: build
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Download Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: Replace-GM-Icon
+          path: out
+
+      - name: Generate Release Notes
+        run: |
+          echo "Automated release of Replace GM Icon extension." > release_notes.md
+          echo "Version: ${GITHUB_REF_NAME}" >> release_notes.md
+
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "${{ github.ref_name }}" "out/Replace GM Icon.ext" \
+            --title "${{ github.ref_name }}" \
+            --notes-file release_notes.md
