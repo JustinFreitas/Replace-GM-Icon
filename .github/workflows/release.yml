@@ -1,4 +1,4 @@
-name: Build & Release Replace-GM-Icon
+name: Build, Test & Release Replace-GM-Icon
 
 on:
   push:
@@ -12,8 +12,28 @@ on:
   workflow_dispatch:
 
 jobs:
+  test:
+    name: Run Unit Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci || npm install
+
+      - name: Run tests
+        run: npm test
+
   build:
     name: Build Extension Package
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -22,7 +42,7 @@ jobs:
       - name: Create Extension Package
         run: |
           mkdir -p out
-          zip -r "out/Replace GM Icon.ext" extension.xml graphics
+          zip -r "out/Replace GM Icon.ext" extension.xml graphics scripts
           echo "Extension successfully packaged."
 
       - name: Upload Artifact
@@ -48,15 +68,10 @@ jobs:
           name: Replace-GM-Icon
           path: out
 
-      - name: Generate Release Notes
-        run: |
-          echo "Automated release of Replace GM Icon extension." > release_notes.md
-          echo "Version: ${GITHUB_REF_NAME}" >> release_notes.md
-
       - name: Create GitHub Release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh release create "${{ github.ref_name }}" "out/Replace GM Icon.ext" \
             --title "${{ github.ref_name }}" \
-            --notes-file release_notes.md
+            --generate-notes

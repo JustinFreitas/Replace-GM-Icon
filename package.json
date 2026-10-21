@@ -1,0 +1,32 @@
+{
+  "name": "replace-gm-icon",
+  "version": "1.4.0",
+  "description": "Fantasy Grounds Classic & Unity (FGC/FGU) extension to replace the GM chat portrait icon.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node test/run_tests.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JustinFreitas/Replace-GM-Icon.git"
+  },
+  "keywords": [
+    "fantasy-grounds",
+    "fgc",
+    "fgu",
+    "corerpg"
+  ],
+  "author": "Justin Freitas",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/JustinFreitas/Replace-GM-Icon/issues"
+  },
+  "homepage": "https://github.com/JustinFreitas/Replace-GM-Icon#readme",
+  "devDependencies": {
+    "wasmoon": "^1.16.0"
+  }
+}

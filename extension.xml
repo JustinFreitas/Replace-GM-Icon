@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <root version="3.3">
-	<announcement text="Replace GM Icon v1.3.1 FGC/FGU\r2022-2026 Justin Freitas" font="emotefont" icon="replace_gm_icon" />
+	<announcement text="Replace GM Icon v1.4 FGC/FGU\r2022-2026 Justin Freitas" font="emotefont" icon="replace_gm_icon" />
 	<properties>
 		<name>Feature: Replace GM Icon</name>
-		<version>1.3.1</version>
+		<version>1.4</version>
 		<loadorder>9998</loadorder>
 		<author>Justin Freitas</author>
 		<description>Replace the GM chat portrait icon.</description>
 	</properties>
 
 	<base>
+		<script name="ReplaceGMIcon" file="scripts/replace_gm_icon.lua" />
 		<icon name="replace_gm_icon" file="graphics/icons/replace_gm_icon.png" />
 		<includefile source="graphics/graphics_portraits.xml" />
+
+		<string name="option_header_replace_gm_icon">Replace GM Icon</string>
+		<string name="option_label_REPLACE_GM_ICON">GM Chat Icon</string>
+		<string name="option_val_gm_icon_custom">Custom</string>
+		<string name="option_val_gm_icon_ampersand">Ampersand</string>
+		<string name="option_val_gm_icon_adnd">AD&amp;D</string>
+		<string name="option_val_gm_icon_cartoon_dm">Cartoon DM</string>
+		<string name="option_val_gm_icon_gm_die">GM Die</string>
 	</base>
 </root>

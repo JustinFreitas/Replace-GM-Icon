@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-<root>
-    <icon name="portrait_gm_token" file="graphics/portraits/portrait_gm_token.png" />
+<root version="3.3">
+	<icon name="portrait_gm_token" file="graphics/portraits/portrait_gm_token.png" />
+	<icon name="portrait_gm_token_ampersand" file="graphics/portraits/ampersand-40.png" />
+	<icon name="portrait_gm_token_adnd" file="graphics/portraits/adnd-with-frame-40.png" />
+	<icon name="portrait_gm_token_cartoon_dm" file="graphics/portraits/cartoon-dm-with-frame-40.png" />
+	<icon name="portrait_gm_token_gm_die" file="graphics/portraits/gm-die-frame-40.png" />
 </root>
